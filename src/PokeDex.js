@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import PokeDexNav from './PokeDexNav';
-import PokeGrid from './PokeGrid';
+import React from "react";
+import Grid from '@material-ui/core/Grid';
+
+import Pokemon from './Pokemon';
 
 /* 
 With the introduction of Hooks in React,
@@ -10,19 +11,16 @@ We'll make our PokeDex doing just that.
 */
 
 function PokeDex() {
-  const [search, setSearch] = useState("");
-
-  function handleSearchChange(e) {
-    setSearch(e.target.value);
-  }
-
   return (
     <>
-      <PokeDexNav
-        searchValue={search}
-        onSearchChange={handleSearchChange}
-      />
-      <PokeGrid searchValue={search} />
+      <Grid
+        style={{ alignSelf: "center" }}
+        justify="flex-start"
+        container
+        spacing={8}
+      >
+        <Pokemon id={4} />
+      </Grid>
     </>
   );
 }

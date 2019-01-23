@@ -4,5 +4,3 @@ export const imageViews = [
   "front_shiny",
   "back_shiny"
 ];
-
-export const NUMBER_POKEMON = 10;
