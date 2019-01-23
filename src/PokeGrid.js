@@ -16,7 +16,7 @@ function PokeGrid({ searchValue }) {
       style={{ alignSelf: "center" }}
       justify="flex-start"
       container
-      spacing={10}
+      spacing={8}
     >
       {pokemon}
     </Grid>

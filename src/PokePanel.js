@@ -13,8 +13,8 @@ function PokePanel({ items, title }) {
         <Typography>{title}</Typography>
       </ExpansionPanelSummary>
     
-      {items.map(item => (
-        <ExpansionPanelDetails>
+      {items.map((item, index) => (
+        <ExpansionPanelDetails key={index}>
           <Typography>{item}</Typography>
         </ExpansionPanelDetails>
       ))}
