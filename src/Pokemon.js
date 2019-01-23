@@ -12,12 +12,26 @@ import { useFetch } from "./hooks";
 import { commaSeparate, catchPokemon } from './utils';
 import styles from './styles/Pokemon.styles';
 
-const Pokemon = ({ id }) => {
+const Pokemon = ({ id, search }) => {
   const pokeData = useFetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
   const pokemon = catchPokemon(pokeData);
 
-  return (
+  function matchesSearch() {
+    if (!pokemon) {
+      return true;
+    }
+
+    const lowName = pokemon.name.toLowerCase();
+    const lowSearch = search.toLowerCase();
+
+    const matchesName = lowName.includes(lowSearch);
+    const matchesType = pokemon.types.some(t => t.includes(lowSearch));
+
+    return matchesName || matchesType;
+  }
+
+  return matchesSearch() && (
     <Grid item xs={12} sm={6} md={4} lg={3}>
       <Card style={styles.card}>
         {pokemon ? (
