@@ -4,11 +4,11 @@ import Grid from "@material-ui/core/Grid";
 import Pokemon from "./Pokemon";
 import { NUMBER_POKEMON } from './constants';
 
-function PokeGrid({ searchValue }) {
+function PokeGrid() {
   const blankSlate = Array(NUMBER_POKEMON).fill('put pokemon here');
 
   const pokemon = blankSlate.map((_, index) =>
-    <Pokemon key={index} id={index + 1} search={searchValue} />
+    <Pokemon key={index} id={index + 1} />
   );
 
   return (
